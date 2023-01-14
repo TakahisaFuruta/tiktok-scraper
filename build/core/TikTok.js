@@ -244,11 +244,11 @@ class TikTokScraper extends events_1.EventEmitter {
                 catch (_a) {
                     throw new Error(`Can't extract unique video id`);
                 }
-            }, err => {
+            }, (err) => {
                 if (err) {
                     return reject(err);
                 }
-                resolve(null);
+                return resolve(null);
             });
         });
     }
@@ -331,7 +331,7 @@ class TikTokScraper extends events_1.EventEmitter {
                 if (err && err !== true) {
                     return reject(err);
                 }
-                resolve(null);
+                return resolve(null);
             });
         });
     }
@@ -812,7 +812,7 @@ class TikTokScraper extends events_1.EventEmitter {
             if (!response) {
                 throw new Error(`Can't extract video meta data`);
             }
-            if (response.includes("__NEXT_DATA__")) {
+            if (response.includes('__NEXT_DATA__')) {
                 const rawVideoMetadata = response
                     .split(/<script id="__NEXT_DATA__" type="application\/json" nonce="[\w-]+" crossorigin="anonymous">/)[1]
                     .split(`</script>`)[0];

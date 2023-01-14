@@ -465,12 +465,12 @@ export class TikTokScraper extends EventEmitter {
                         throw new Error(`Can't extract unique video id`);
                     }
                 },
-                err => {
+                (err: any) => {
                     if (err) {
                         return reject(err);
                     }
 
-                    resolve(null);
+                    return resolve(null);
                 },
             );
         });
@@ -584,7 +584,7 @@ export class TikTokScraper extends EventEmitter {
                         return reject(err);
                     }
 
-                    resolve(null);
+                    return resolve(null);
                 },
             );
         });
@@ -1201,7 +1201,7 @@ export class TikTokScraper extends EventEmitter {
                 throw new Error(`Can't extract video meta data`);
             }
 
-            if (response.includes("__NEXT_DATA__")){
+            if (response.includes('__NEXT_DATA__')) {
                 const rawVideoMetadata = response
                     .split(/<script id="__NEXT_DATA__" type="application\/json" nonce="[\w-]+" crossorigin="anonymous">/)[1]
                     .split(`</script>`)[0];
@@ -1219,7 +1219,7 @@ export class TikTokScraper extends EventEmitter {
                 return videoData as FeedItems;
             }
 
-            throw new Error('No available parser for html page')
+            throw new Error('No available parser for html page');
         } catch (error) {
             throw new Error(`Can't extract video metadata: ${this.input}`);
         }

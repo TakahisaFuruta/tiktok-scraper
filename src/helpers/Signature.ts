@@ -4,8 +4,6 @@
 import { JSDOM, ResourceLoader } from 'jsdom';
 
 export function sign(url: string, userAgent: string) {
-
-
     const resourceLoader = new ResourceLoader({
         userAgent,
     });
@@ -16,7 +14,7 @@ export function sign(url: string, userAgent: string) {
         contentType: 'text/html',
         includeNodeLocations: true,
         runScripts: 'outside-only',
-        resources: resourceLoader
+        resources: resourceLoader,
     });
 
     window.eval('console.log = () => {};');

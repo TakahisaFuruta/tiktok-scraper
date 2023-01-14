@@ -21,6 +21,8 @@ module.exports = {
         'no-bitwise': 'off',
         camelcase: 'off',
         'import/prefer-default-export': 'off',
+        "no-param-reassign": 0,
+        "no-continue": 'off'
     },
     overrides: [
         {
