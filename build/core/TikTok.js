@@ -849,9 +849,7 @@ class TikTokScraper extends events_1.EventEmitter {
                 }
             }
             catch (err) {
-                if (err.statusCode === 404) {
-                    throw new Error('Video does not exist');
-                }
+                throw err;
             }
         }
         throw new Error(`Can't extract video metadata: ${this.input}`);
